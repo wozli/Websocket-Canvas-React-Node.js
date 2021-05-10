@@ -1,9 +1,11 @@
 import React from 'react';
 import toolState from "../store/toolState";
+import classes from '../styles/toolbar.scss'
 
 const SettingBar = () => {
+
     return (
-        <div className="setting-bar">
+        <div className={classes['setting-bar']}>
             <label htmlFor="line-width">Толщина линии</label>
             <input onChange={e => toolState.setLineWidth(e.target.value)}
                    style={{margin: '0 10px'}}

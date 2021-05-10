@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/toolbar.scss'
+import classes from '../styles/toolbar.scss'
 import toolState from "../store/toolState";
 import Brush from "../tools/Brush";
 import canvasState from "../store/canvasState";
@@ -27,16 +27,16 @@ const Toolbar = observer(() => {
     }
 
     return (
-        <div className="toolbar">
-            <button className="toolbar__btn brush" onClick={()=> toolState.setTool(new Brush(canvasState.canvas, canvasState.socket, canvasState.sessionId))}></button>
-            <button className="toolbar__btn rect" onClick={()=> toolState.setTool(new Rect(canvasState.canvas, canvasState.socket, canvasState.sessionId))}></button>
-            <button className="toolbar__btn circle" onClick={()=> toolState.setTool(new Circle(canvasState.canvas))}></button>
-            <button className="toolbar__btn eraser" onClick={()=> toolState.setTool(new Eraser(canvasState.canvas))}></button>
-            <button className="toolbar__btn line" onClick={()=> toolState.setTool(new Line(canvasState.canvas))}></button>
+        <div className={classes.toolbar}>
+            <button className={`${classes.toolbar__btn} ${classes.brush}`} onClick={()=> toolState.setTool(new Brush(canvasState.canvas, canvasState.socket, canvasState.sessionId))}></button>
+            <button className={`${classes.toolbar__btn} ${classes.rect}`} onClick={()=> toolState.setTool(new Rect(canvasState.canvas, canvasState.socket, canvasState.sessionId))}></button>
+            <button className={`${classes.toolbar__btn} ${classes.circle}`} onClick={()=> toolState.setTool(new Circle(canvasState.canvas))}></button>
+            <button className={`${classes.toolbar__btn} ${classes.eraser}`} onClick={()=> toolState.setTool(new Eraser(canvasState.canvas))}></button>
+            <button className={`${classes.toolbar__btn} ${classes.line}`} onClick={()=> toolState.setTool(new Line(canvasState.canvas))}></button>
             <input onChange={e => changeColor(e)} type="color"/>
-            <button className="toolbar__btn undo" onClick={() => canvasState.undo()} disabled={canvasState.undoList.length === 0}></button>
-            <button className="toolbar__btn redo" onClick={() => canvasState.redo()} disabled={canvasState.redoList.length === 0}></button>
-            <button className="toolbar__btn save" title="Сохранить" onClick={() => download()}></button>
+            <button className={`${classes.toolbar__btn} ${classes.undo}`} onClick={() => canvasState.undo()} disabled={canvasState.undoList.length === 0}></button>
+            <button className={`${classes.toolbar__btn} ${classes.redo}`} onClick={() => canvasState.redo()} disabled={canvasState.redoList.length === 0}></button>
+            <button className={`${classes.toolbar__btn} ${classes.save}`} title="Сохранить" onClick={() => download()}></button>
         </div>
     );
 });

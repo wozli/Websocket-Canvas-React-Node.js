@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import '../styles/canvas.scss'
+import classes from'../styles/canvas.scss'
 import {observer} from "mobx-react-lite";
 import canvasState from "../store/canvasState";
 import toolState from "../store/toolState";
@@ -101,7 +101,7 @@ const Canvas = observer(() => {
     }
 
     return (
-        <div className="canvas">
+        <div className={classes.canvas}>
 
             <Modal show={modal} onHide={() => {
             }}>
